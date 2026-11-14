@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  /* ============================================================
+     Paleta oficial ListoPOS — sistema de color accesible (WCAG AA)
+     ============================================================ */
+
+  /* Azul Listo — primario / marca (#1D4ED8) y botones (#0037B0) */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #dce1ff;
+  --color-brand-200: #b7c4ff;
+  --color-brand-300: #8ca2f5;
+  --color-brand-400: #5a7be8;
+  --color-brand-500: #1d4ed8;
+  --color-brand-600: #0037b0;
+  --color-brand-700: #002a8c;
+  --color-brand-800: #001f6b;
+  --color-brand-900: #01164d;
+  --color-brand-950: #000d33;
+
+  /* Esmeralda POS — secundario / éxito (#059669) y texto (#006C4A) */
+  --color-eco-50: #ecfdf5;
+  --color-eco-100: #d1fae5;
+  --color-eco-200: #a7f3d0;
+  --color-eco-300: #6ee7b7;
+  --color-eco-400: #34d399;
+  --color-eco-500: #10b981;
+  --color-eco-600: #059669;
+  --color-eco-700: #006c4a;
+  --color-eco-800: #065f46;
+  --color-eco-900: #064e3b;
+
+  /* Ámbar Alerta — terciario / avisos (#D97706) */
+  --color-alerta-50: #fffbeb;
+  --color-alerta-100: #fef3c7;
+  --color-alerta-200: #fde68a;
+  --color-alerta-300: #fcd34d;
+  --color-alerta-400: #fbbf24;
+  --color-alerta-500: #f59e0b;
+  --color-alerta-600: #d97706;
+  --color-alerta-700: #b45309;
+  --color-alerta-800: #92400e;
+  --color-alerta-900: #78350f;
+
+  /* Pizarra Oscura — texto y neutros (#0B1C30 / fondo dark #031427) */
+  --color-pizarra-50: #f8f9ff;
+  --color-pizarra-100: #eef0f8;
+  --color-pizarra-200: #e0e1f4;
+  --color-pizarra-300: #c4c5d7;
+  --color-pizarra-400: #8e94a8;
+  --color-pizarra-500: #505f76;
+  --color-pizarra-600: #434655;
+  --color-pizarra-700: #2c3a4f;
+  --color-pizarra-800: #142838;
+  --color-pizarra-900: #0b1c30;
+  --color-pizarra-950: #031427;
+
+  /* Rojo Error — errores / anulación (#BF0715) */
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #bf0715;
+  --color-error-700: #991b1b;
+  --color-error-800: #7f1d1d;
+  --color-error-900: #641010;
+
+  --font-sans: var(--font-inter), "Inter", "Segoe UI", ui-sans-serif,
+    system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-white text-pizarra-900 font-sans;
+  }
+}
+
+@layer utilities {
+  /* Gradiente de marca: Azul Listo → Pizarra Oscura */
+  .bg-brand-gradient {
+    background-image: linear-gradient(
+      135deg,
+      #1d4ed8 0%,
+      #0037b0 55%,
+      #031427 100%
+    );
+  }
+  /* Texto degradado bicolor de marca: azul → esmeralda */
+  .text-gradient-brand {
+    background-image: linear-gradient(90deg, #1d4ed8, #059669);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

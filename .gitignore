@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# datos locales de desarrollo
+/.data/
+/.npm-cache/
+
+# entorno
+.env
+.env.local
+.env*.local
+
+# misc
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+/coverage/
+
+# PWA service worker generado en cada build
+/public/sw.js
+/public/sw.js.map
