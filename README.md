@@ -104,3 +104,28 @@ drizzle/          # Migraciones SQL generadas
 - [x] Fase 5 — Cierres Z, ledger con abonos multimoneda, bancos, CRM con puntos, dashboard gerencial y libros SENIAT en xlsx
 
 **QA:** 86 tests (unitarios + integración con PostgreSQL real y Dexie), typecheck estricto y build de producción verificado.
+
+## Subir el proyecto a GitHub
+
+El repositorio local ya está inicializado (`main`, primer commit hecho). Para publicarlo:
+
+1. Crea un repositorio **vacío** (sin README, sin .gitignore, sin licencia) en
+   [github.com/new](https://github.com/new) con el nombre `listopos` y visibilidad **Public**.
+2. Desde la raíz del proyecto ejecuta:
+
+   ```powershell
+   npm run push:github -- -User TU_USUARIO_DE_GITHUB
+   ```
+
+   La primera vez, Git Credential Manager abrirá el navegador para iniciar sesión en GitHub.
+
+Equivalente manual:
+
+```powershell
+git remote add origin https://github.com/TU_USUARIO/listopos.git
+git push -u origin main
+```
+
+> El repo es seguro para publicar: `.env`, `node_modules`, `.next`, `.data` y el service worker
+> generado quedan fuera del control de versiones (ver `.gitignore`), y no hay tokens ni claves
+> en el historial.

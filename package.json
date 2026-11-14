@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "db:generate": "drizzle-kit generate",
     "db:apply": "node scripts/db-apply.mjs",
-    "icons": "python scripts/generate-icons.py"
+    "icons": "python scripts/generate-icons.py",
+    "push:github": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/push-github.ps1"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
