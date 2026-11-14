@@ -129,3 +129,11 @@ git push -u origin main
 > El repo es seguro para publicar: `.env`, `node_modules`, `.next`, `.data` y el service worker
 > generado quedan fuera del control de versiones (ver `.gitignore`), y no hay tokens ni claves
 > en el historial.
+
+Para futuros cambios (PowerShell no acepta `&&`, usa líneas separadas):
+
+```powershell
+git add -A
+git commit -m "tu mensaje"
+git push
+```

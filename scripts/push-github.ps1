@@ -37,7 +37,7 @@ try {
     $Url = "https://github.com/$User/$RepoName.git"
   }
 
-  Write-Host "→ Repositorio remoto: $Url"
+  Write-Host "-> Repositorio remoto: $Url"
 
   $remotes = @(git remote)
   if ($remotes -contains "origin") {
@@ -47,25 +47,27 @@ try {
   }
 
   Write-Host ""
-  Write-Host "→ Subiendo la rama 'main'…" -ForegroundColor Cyan
-  Write-Host "  (si es la primera vez, se abrirá el navegador para iniciar sesión en GitHub)" -ForegroundColor DarkGray
+  Write-Host "-> Subiendo la rama 'main'..." -ForegroundColor Cyan
+  Write-Host "   (si es la primera vez, se abrirá el navegador para iniciar sesión en GitHub)" -ForegroundColor DarkGray
   git push -u origin main
 
   if ($LASTEXITCODE -ne 0) {
-    throw @"
-El push falló. Verifica:
-  · Haber creado el repositorio VACÍO y PÚBLICO '$RepoName' en https://github.com/new
-  · Que el usuario '$User' sea tu cuenta y el repo te pertenezca
-  · Que hayas iniciado sesión cuando Git Credential Manager lo pida
-"@
+    Write-Host ""
+    Write-Host "El push falló. Verifica:" -ForegroundColor Yellow
+    Write-Host "  - Haber creado el repositorio VACÍO y PÚBLICO '$RepoName' en https://github.com/new"
+    Write-Host "  - Que el usuario '$User' sea tu cuenta y el repo te pertenezca"
+    Write-Host "  - Que hayas iniciado sesión cuando Git Credential Manager lo pida"
+    exit 1
   }
 
   $web = $Url -replace '\.git$', ''
   Write-Host ""
-  Write-Host "✔ Proyecto subido a GitHub: $web" -ForegroundColor Green
+  Write-Host "OK: Proyecto subido a GitHub -> $web" -ForegroundColor Green
   Write-Host ""
-  Write-Host "Para futuros cambios:" -ForegroundColor Cyan
-  Write-Host "  git add -A && git commit -m `"mensaje`" && git push"
+  Write-Host "Para futuros cambios, desde la carpeta del proyecto:" -ForegroundColor Cyan
+  Write-Host '  git add -A'
+  Write-Host '  git commit -m "tu mensaje"'
+  Write-Host '  git push'
 }
 finally {
   Pop-Location
